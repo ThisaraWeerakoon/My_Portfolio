@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research — Thisara R. Weerakoon</title>
+    <meta
+      name="description"
+      content="Research by Thisara R. Weerakoon: NUMA-aware compilation for LLM prefill, temporal boundary distributions for action localization, and noise-robust ECG biometrics."
+    />
+    <link rel="icon" href="./assets/profile-pic.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="index.html">Thisara R. Weerakoon</a>
+        <ul class="nav" id="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html" class="is-active">Research</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="teaching.html">Teaching &amp; Service</a></li>
+          <li><a href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">CV</a></li>
+        </ul>
+        <div class="header-tools">
+          <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="icon-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page" id="main">
+      <h1 class="page-title">Research</h1>
+      <p class="page-lede">
+        My work concerns performance at the boundary between software and hardware &mdash; how a
+        compiler maps a program onto the machine that runs it, and what is lost when that mapping
+        ignores the machine's structure. Three undergraduate projects, in compilers and in machine
+        learning, are described below, followed by the work I am pursuing now.
+      </p>
+
+      <!-- Interests -->
+      <section class="section" id="interests">
+        <h2 class="section__title">Research Interests</h2>
+        <div class="prose">
+          <p>
+            I am interested in compilers that are aware of the hardware they target: how a compiler
+            should reason about memory topology, dataflow and scheduling rather than treating the
+            machine as a flat, uniform device. Three threads run through my work:
+          </p>
+          <ul>
+            <li>
+              <strong>Hardware-aware compilation.</strong> Memory placement, locality and thread
+              affinity as first-class compiler concerns, rather than runtime afterthoughts.
+            </li>
+            <li>
+              <strong>Dataflow and reconfigurable architectures.</strong> Compiling high-level
+              programs into dynamically scheduled circuits, where the schedule is decided by data
+              availability instead of a fixed state machine.
+            </li>
+            <li>
+              <strong>AI inference optimization.</strong> Making large-model inference efficient on
+              commodity and specialized hardware, especially where memory bandwidth, not arithmetic,
+              is the limit.
+            </li>
+          </ul>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Compilers</span>
+          <span class="tag">MLIR / LLVM</span>
+          <span class="tag">High-Performance Computing</span>
+          <span class="tag">NUMA &amp; Memory Locality</span>
+          <span class="tag">High-Level Synthesis</span>
+          <span class="tag">Parallel Programming Models</span>
+        </div>
+      </section>
+
+      <!-- Ongoing -->
+      <section class="section" id="ongoing">
+        <h2 class="section__title">Ongoing Work</h2>
+        <div class="callout">
+          <p>
+            <strong>Compilers for sparse computations</strong> &mdash; since June 2026, part-time
+            research with Prof. Sanath Jayasena (University of Moratuwa) and Dr. Tharindu Patabandi
+            (Qualcomm Technologies), building on my undergraduate thesis. The question is how a
+            compiler should choose data layouts and schedules when the operands are sparse and the
+            cost model that works for dense tensors no longer holds.
+          </p>
+        </div>
+      </section>
+
+      <!-- NUMA-Torch -->
+      <section class="section" id="numa-torch">
+        <h2 class="section__title">NUMA-Torch</h2>
+        <div class="entry" style="padding-top: 0; border-bottom: none">
+          <div class="entry__head">
+            <h3 class="entry__title" style="font-size: 1.35rem">
+              Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket CPUs
+            </h3>
+            <span class="entry__date">Jun 2025 &ndash; Jun 2026</span>
+          </div>
+          <p class="entry__sub">
+            B.Sc. thesis &middot; advised by Prof. Sanath Jayasena (University of Moratuwa) and
+            Dr. Tharindu R. Patabandi (Qualcomm Technologies) &middot; team lead
+          </p>
+
+          <dl class="par">
+            <dt>Problem</dt>
+            <dd>
+              Large language model prefill on multi-socket CPUs is DRAM-bound. TorchInductor places
+              weights without any awareness of NUMA topology, so threads routinely compute on tensors
+              that live in another socket's memory and pay remote-access latency for every read.
+            </dd>
+
+            <dt>Approach</dt>
+            <dd>
+              We added NUMA-aware tensor parallelism to TorchInductor: FX graph passes that shard
+              weights per socket, and a Triton-CPU launcher that pins each thread to the socket
+              holding the data it operates on. The key move was recognizing that Megatron-LM's tensor
+              parallelism &mdash; designed for multi-GPU clusters &mdash; is the right abstraction for
+              a single multi-socket machine, after months spent on a partitioning formulation that did
+              not generalize.
+            </dd>
+
+            <dt>Result</dt>
+            <dd>
+              Up to <strong>2.63&times;</strong> prefill speedup on dual-socket and
+              <strong>2.27&times;</strong> on four-socket systems, measured on GPT-2, BERT and
+              Gemma 3, with <strong>no changes to model code</strong>. Accepted at HiPC 2026.
+            </dd>
+          </dl>
+
+          <p class="stack-line">
+            <strong>Technologies:</strong> MLIR &middot; TorchInductor &middot; Triton-CPU &middot;
+            Python &middot; OpenMP &middot; libnuma &middot; Intel Advisor / VTune
+          </p>
+
+          <div class="pub__links">
+            <a class="chip" href="https://arxiv.org/abs/2611.07105" target="_blank" rel="noopener">arXiv:2611.07105</a>
+            <a class="chip" href="index.html#publications">Citation</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TBT-Former -->
+      <section class="section" id="tbt-former">
+        <h2 class="section__title">TBT-Former</h2>
+        <div class="entry" style="padding-top: 0; border-bottom: none">
+          <div class="entry__head">
+            <h3 class="entry__title" style="font-size: 1.35rem">
+              Learning Temporal Boundary Distributions for Action Localization
+            </h3>
+            <span class="entry__date">Aug 2025 &ndash; Nov 2025</span>
+          </div>
+          <p class="entry__sub">
+            Individual research &middot; advised by Prof. Uthayasanker Thayasivam (University of
+            Moratuwa)
+          </p>
+
+          <dl class="par">
+            <dt>Problem</dt>
+            <dd>
+              Transformer-based action localizers regress a single deterministic timestamp per
+              boundary, implicitly assuming one exact location. When an action begins or ends
+              gradually, the annotated boundary is only one of several plausible frames, so
+              near-identical moments receive conflicting regression targets and the model is penalized
+              even for reasonable predictions.
+            </dd>
+
+            <dt>Approach</dt>
+            <dd>
+              I first ruled out capacity as the bottleneck &mdash; scaling the Transformer and
+              swapping in Mamba and convolutional backbones gave only marginal gains. The real fault
+              was the output representation. Borrowing from how Generalized Focal Loss handles
+              occluded box edges in object detection, I designed a head that predicts a discrete
+              <em>distribution</em> over boundary offsets, trained with Distribution Focal Loss. The
+              boundary is decoded as the distribution's expectation; its sharpness encodes the model's
+              uncertainty.
+            </dd>
+
+            <dt>Result</dt>
+            <dd>
+              TBT-Former consistently outperformed ActionFormer (ECCV 2022) on THUMOS14 and
+              EPIC-Kitchens 100. In ablations, the boundary-distribution head alone accounted for the
+              largest share of the improvement. Accepted as a short paper at VISAPP 2026; withdrawn
+              before publication as I could not fund registration and travel. Preprint and code remain
+              open.
+            </dd>
+          </dl>
+
+          <p class="stack-line">
+            <strong>Technologies:</strong> PyTorch &middot; ActionFormer &middot; Mamba &middot;
+            Distribution Focal Loss &middot; THUMOS14 &middot; EPIC-Kitchens 100
+          </p>
+
+          <div class="pub__links">
+            <a class="chip" href="https://www.arxiv.org/pdf/2512.01298" target="_blank" rel="noopener">arXiv:2512.01298</a>
+            <a class="chip" href="https://github.com/aaivu/In21-S7-CS4681-AML-Research-Projects/tree/main/projects/210536K-Multi-Modal-Learning_Video-Understanding/src" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ECG -->
+      <section class="section" id="ecg">
+        <h2 class="section__title">Noise-Robust ECG Biometrics</h2>
+        <div class="entry" style="padding-top: 0; border-bottom: none">
+          <div class="entry__head">
+            <h3 class="entry__title" style="font-size: 1.35rem">
+              Person Identification from Single-Channel ECG
+            </h3>
+            <span class="entry__date">Sep 2024 &ndash; Nov 2024</span>
+          </div>
+          <p class="entry__sub">
+            CS3501 Data Science and Engineering Project &middot; advised by Prof. Uthayasanker
+            Thayasivam &middot; graded A+
+          </p>
+
+          <dl class="par">
+            <dt>Problem</dt>
+            <dd>
+              Wearable single-channel ECG could support continuous person identification, but
+              published models exceed 95% accuracy only on denoised gel-electrode recordings. They
+              degrade sharply on the raw, noisy signals a wrist-worn dry electrode actually produces.
+            </dd>
+
+            <dt>Approach</dt>
+            <dd>
+              Unable to collect noisy dry-electrode recordings in time, I approximated that noise with
+              randomized synthetic distortions and trained a Siamese 1D convolutional encoder with
+              contrastive loss, mapping clean and noisy frames of the same person to nearby
+              512-dimensional embeddings.
+            </dd>
+
+            <dt>Result</dt>
+            <dd>
+              Under synthetic noise, published models lost <strong>18.3 percentage points</strong> of
+              identification accuracy on average across MIT-BIH, PTB Diagnostic and St. Petersburg,
+              while my model lost only <strong>6.1</strong> &mdash; without the heavy preprocessing
+              pipeline the baselines depend on.
+            </dd>
+          </dl>
+
+          <p class="stack-line">
+            <strong>Technologies:</strong> PyTorch &middot; Siamese networks &middot; contrastive
+            learning &middot; MIT-BIH &middot; PTB Diagnostic &middot; St. Petersburg INCART
+          </p>
+        </div>
+      </section>
+
+      <!-- Hardware -->
+      <section class="section" id="hardware">
+        <h2 class="section__title">Hardware &amp; Dataflow Experiments</h2>
+        <div class="entry" style="padding-top: 0; border-bottom: none">
+          <div class="entry__head">
+            <h3 class="entry__title" style="font-size: 1.35rem">
+              Dynamically Scheduled Elastic Circuits in VHDL
+            </h3>
+          </div>
+          <p class="entry__sub">Independent study in high-level synthesis</p>
+          <div class="entry__body">
+            <p>
+              I built a dataflow circuit from a hand-written handshake component library and measured
+              it against a static FSM baseline, then compared it with
+              <a href="https://dynamatic.epfl.ch/" target="_blank" rel="noopener">Dynamatic</a>'s
+              output for the same C source and benchmarked three buffer-placement algorithms. The
+              exercise is what drew me to dynamically scheduled circuits as a research direction: the
+              gap between what a static schedule must assume and what a dataflow circuit can discover
+              at runtime is exactly the compiler question I want to work on.
+            </p>
+          </div>
+          <p class="stack-line">
+            <strong>Technologies:</strong> VHDL &middot; GHDL &middot; Dynamatic &middot; Python
+          </p>
+          <div class="pub__links">
+            <a class="chip" href="https://github.com/ThisaraWeerakoon" target="_blank" rel="noopener">GitHub</a>
+            <a class="chip" href="projects.html">More projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>&copy; 2026 Thisara R. Weerakoon</span>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="teaching.html">Teaching &amp; Service</a></li>
+          <li><a href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">CV</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

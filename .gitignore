@@ -1,0 +1,10 @@
+# Application material — personal, must never be published with the site.
+SoP-*.pdf
+SoP-*.docx
+Statement-of-Purpose*
+Research-Statement*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/

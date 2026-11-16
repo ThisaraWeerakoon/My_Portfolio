@@ -2,409 +2,475 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Thisara R. Weerakoon</title>
+    <meta
+      name="description"
+      content="Thisara R. Weerakoon — compilers, high-performance computing and hardware-aware optimization. Software Engineer at WSO2 R&D and Apache Synapse PMC member."
+    />
+    <meta name="author" content="Thisara R. Weerakoon" />
+    <meta property="og:title" content="Thisara R. Weerakoon" />
+    <meta
+      property="og:description"
+      content="Compilers, high-performance computing and hardware-aware optimization."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="./assets/profile-pic.jpg" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <script>
+      // Applied before paint to avoid a flash of the wrong theme.
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">My Portfolio</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Work Experience</a></li>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="index.html">Thisara R. Weerakoon</a>
+        <ul class="nav" id="nav">
+          <li><a href="index.html" class="is-active">Home</a></li>
+          <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="teaching.html">Teaching &amp; Service</a></li>
+          <li><a href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">CV</a></li>
         </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">My Portfolio</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Work Experience</a></li>
-          <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.jpg" alt="Ishan Kawshalya profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Thisara Weerakoon</h1>
-        <p class="section__text__p2">Computer Science and Engineering undergraduate from University of Moratuwa.</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Thisara_Weerakoon_CV.pdf')"
-          >
-            Download CV
+        <div class="header-tools">
+          <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="icon-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
           </button>
         </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/weerakoon-thisara-rathnayaka-881826177/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/ThisaraWeerakoon'"
-          />
-        </div>
       </div>
-    </section>
-    <section id="about" style="margin-bottom: 0; height: fit-content; min-height: 40vh; padding-bottom: 5rem;">      
-      <h1 class="title">About Me</h1>
-      <p class="section__text__p1">
-        Apache Contributor and open source enthusiast with hands-on experience in building clean and maintainable software. I am a continuous learner with a keen interest in backend engineering, machine learning and exploring the intersection of compilers and AI to build efficient systems.
-      </p>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#education'"
-      />
-    </section>
+    </header>
 
-    <section id="education" style="padding-top: 4vh; margin-top: 0;">
-      <p class="section__text__p1">My Academic Journey</p>
-      <h1 class="title">Education</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container" style="text-align: left; padding: 2rem;">
-            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
-                <img src="./assets/uom.jpeg" alt="University of Moratuwa" style="height: 3rem; width: auto; border-radius: 50%;">
-                <div>
-                   <div style="display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
-                       <h2 class="experience-sub-title" style="font-size: 1.4rem; margin: 0;">University of Moratuwa</h2>
-                   </div>
-                   <p style="font-style: italic; color: #555; font-size: 0.9rem;">June 2022 - Present</p>
-                </div>
-            </div>
-            <p style="font-size: 1rem;">B.Sc. Eng (Hons) Computer Science and Engineering, specializing in Data Science and Engineering</p>
-            <p style="font-size: 1rem;">Minor in Mathematics</p>
-            <ul style="margin-top: 1rem; margin-left: 1.5rem; font-size: 1rem;">
-                 <li style="margin-bottom: 0.5rem;"><strong>CGPA: 3.87/4.00</strong> (6 semesters)</li>
-                 <li>Dean's list in <strong>all 6 semesters</strong></li>
-            </ul>
-          </div>
-        </div>
-        <div class="about-containers" style="margin-top: 2rem;">
-           <div class="details-container" style="text-align: left; padding: 2rem;">
-            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
-                <img src="./assets/rahula.png" alt="Rahula College" style="height: 3.5rem; width: auto;">
-                <div>
-                   <div style="display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
-                        <h2 class="experience-sub-title" style="font-size: 1.4rem; margin: 0;">Rahula College, Matara</h2>
-                   </div>
-                   <p style="font-style: italic; color: #555; font-size: 0.9rem;">March 2007 - Oct. 2020</p>
-                </div>
-            </div>
-            <p style="font-size: 1rem;">GCE Advanced Level - Physical Science Stream - Combined Mathematics, Physics, Chemistry</p>
-            <ul style="margin-top: 1rem; margin-left: 1.5rem; font-size: 1rem;">
-                 <li style="margin-bottom: 0.5rem;"><strong>Island Rank: 54</strong></li>
-                 <li>Z-Score : 2.6945 , 3As</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
+    <div class="layout" id="main">
+      <!-- ------------------------------------------------ sidebar -->
+      <aside class="sidebar">
+        <img class="portrait" src="./assets/profile-pic.jpg" alt="Thisara R. Weerakoon" />
+        <div class="sidebar__meta">
+          <h1 class="sidebar__name">Thisara R. Weerakoon</h1>
+          <p class="sidebar__role">
+            Software Engineer, R&amp;D<br />
+            <a href="https://wso2.com" target="_blank" rel="noopener">WSO2</a> &middot; Sri Lanka
+          </p>
+          <p class="sidebar__role">
+            PMC Member,
+            <a href="https://synapse.apache.org/" target="_blank" rel="noopener">Apache Synapse</a>
+          </p>
 
-    <section id="experience">
-      <p class="section__text__p1">My Previous</p>
-      <h1 class="title">Work Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <div style="display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem;">
-                <img src="./assets/wso2.png" alt="WSO2 Logo" style="height: 3rem; width: auto;">
-                <h2 class="experience-sub-title" style="margin:0;">WSO2 Lanka Pvt. Ltd</h2>
-            </div>
-            <p style="text-align:center; color:#555; font-weight:bold;">Software Engineering Intern - Micro Integrator Team</p>
-            <p style="text-align:center; color:#555; font-style:italic;">Dec 2024 - May 2025</p>
-            <br>
-            <div class="article-container" style="display:block; text-align:left;">
-              <p style="margin-bottom:0.8rem;">• Implemented core components for the <a href="https://github.com/apache/synapse-go">Apache Synapse Go</a> initiative. Created comprehensive developer documentation and engaged the <a href="https://lists.apache.org/list.html?dev@synapse.apache.org">Synapse Dev Community</a> to establish a clear path for future contributors (<a href="https://github.com/apache/synapse-go">GitHub</a>).</p>
-              <p style="margin-bottom:0.8rem;">• Developed a Ballerina connector to connect and interact with <a href="https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.engagement.meeting">Hubspot Meetings API</a>.</p>
-              <p><strong>Technologies:</strong> Go</p>
-            </div>
-          </div>
-          <div class="details-container" style="margin-top:2rem;">
-            <div style="display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem;">
-                 <img src="./assets/uom.jpeg" alt="UoM Logo" style="height: 3rem; width: auto; border-radius:50%;">
-                 <h2 class="experience-sub-title" style="margin:0;">University of Moratuwa</h2>
-            </div>
-            <p style="text-align:center; color:#555; font-weight:bold;">Teaching Assistant - Data Science and Engineering Project (CS3501)</p>
-            <p style="text-align:center; color:#555; font-style:italic;">Jul 2025 - Nov 2025</p>
-            <br>
-            <div class="article-container" style="display:block; text-align:left;">
-              <p>• Mentored undergraduate groups for the Data Science and Engineering project.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#teaching'"
-      />
-    </section>
-
-    <section id="teaching">
-      <p class="section__text__p1">My Passion</p>
-      <h1 class="title">Teaching Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <div style="display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem;">
-                <img src="./assets/slomf.png" alt="SLOMF Logo" style="height: 3rem; width: auto;">
-                <h2 class="experience-sub-title" style="margin:0;">Sri Lanka Olympiad Mathematics Foundation</h2>
-            </div>
-            <p style="text-align:center; color:#555; font-weight:bold;">Trainer</p>
-            <p style="text-align:center; color:#555; font-style:italic;">Dec 2022 - Apr 2023</p>
-            <br>
-            <div class="article-container" style="display:block; text-align:left;">
-              <p>• Trainer for the teams representing Sri Lanka for Thailand International Mathematics Olympiad 2022 and Hong Kong International Mathematics Olympiad 2022.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#skills'"
-      />
-    </section>
-
-    <section id="skills">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Skills</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container" style="text-align: left; padding: 2rem;">
-            <div class="article-container" style="display:block;">
-              <p style="margin-bottom: 1rem; font-size: 1.1rem;">
-                <strong>Programming Languages:</strong> Go, Python, Java
-              </p>
-              <p style="margin-bottom: 1rem; font-size: 1.1rem;">
-                <strong>Libraries and Frameworks:</strong> SpringBoot, Gin, PyTorch, Triton, LangChain4j
-              </p>
-              <p style="font-size: 1.1rem;">
-                <strong>Technical Fields:</strong> Fullstack development, Compilers for AI, Machine Learning
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#opensource'"
-      />
-    </section>
-
-    <section id="opensource">
-      <p class="section__text__p1">My Contributions</p>
-      <h1 class="title">Open Source Contributions</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container" style="text-align: left; padding: 2rem; display: block;">
-            
-            <!-- Project 1: Apache Synapse-Go -->
-            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                <div style="align-self: flex-start;">
-                   <img src="./assets/synapse.png" alt="Apache Synapse-Go" style="width: 60px; height: auto;">
-                </div>
-                <div>
-                   <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem;">
-                       <span style="color: #555; margin-right: 0.5rem;">1.</span>
-                       <a href="https://github.com/apache/synapse-go" target="_blank" style="text-decoration:none; color:inherit;">Apache Synapse-Go</a>
-                       <span style="font-size: 0.9rem; color: #555; margin-left: 0.5rem; font-weight: normal;">(Contributor)</span>
-                   </h2>
-                   <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: #555;">Stack: Go | Integration | Enterprise Service Bus</p>
-                   <ul>
-                      <li style="margin-bottom: 0.3rem;">Listed as <a href="https://synapse.apache.org/team-list.html" target="_blank" style="text-decoration:none; color:inherit;"><strong>Apache Synapse Contributor</strong></a> (committership pending).</li>
-                      <li style="margin-bottom: 0.3rem;">Learned scalable software architecture. Engaged in <a href="https://lists.apache.org/list.html?dev@synapse.apache.org" target="_blank" style="text-decoration:none; color:inherit;"><strong>Synapse Dev Community Mailing List</strong></a>.</li>
-                      <li>Solved <a href="https://medium.com/@thisara.weerakoon2001/powering-up-your-integration-engine-building-a-flexible-out-of-process-connector-framework-in-go-da459c1f0f18" target="_blank" style="text-decoration:none; color:inherit;"><strong>IPC</strong></a> and <a href="https://medium.com/@thisara.weerakoon2001/implementing-a-dynamic-package-level-logger-in-go-949d573a2192" target="_blank" style="text-decoration:none; color:inherit;"><strong>dynamic logging</strong></a> challenges in Go.</li>
-                   </ul>
-                </div>
-            </div>
-
-            <!-- Project 2: C2FO/VFS -->
-            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                <div style="align-self: flex-start;">
-                   <img src="./assets/vfs.png" alt="C2FO/VFS" style="width: 60px; height: auto;">
-                </div>
-                <div>
-                   <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem;">
-                       <span style="color: #555; margin-right: 0.5rem;">2.</span>
-                       <a href="https://github.com/C2FO/vfs" target="_blank" style="text-decoration:none; color:inherit;">C2FO/VFS</a>
-                       <a href="https://github.com/C2FO/vfs" target="_blank"><img src="./assets/github.png" alt="Github" class="icon" style="height:1rem; width:1rem; margin-left: 0.5rem;"></a>
-                   </h2>
-                   <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: #555;">Stack: Go | Virtual File System</p>
-                   <ul>
-                      <li style="margin-bottom: 0.3rem;">Contributed to improve <a href="https://github.com/C2FO/vfs/pull/248" target="_blank" style="text-decoration:none; color:inherit;"><strong>FTP/SFTP implementation</strong></a> and <a href="https://github.com/C2FO/vfs/pull/251" target="_blank" style="text-decoration:none; color:inherit;"><strong>error handling</strong></a>.</li>
-                      <li>Learned to write clean code adhering to existing standards.</li>
-                   </ul>
-                </div>
-            </div>
-
-            <!-- Project 3: Apache Dubbo-Go -->
-            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 0;">
-                <div style="align-self: flex-start;">
-                   <img src="./assets/dubbo.png" alt="Apache Dubbo-Go" style="width: 60px; height: auto;">
-                </div>
-                <div>
-                   <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem;">
-                       <span style="color: #555; margin-right: 0.5rem;">3.</span>
-                       <a href="https://github.com/apache/dubbo-go-samples" target="_blank" style="text-decoration:none; color:inherit;">Apache Dubbo-Go</a>
-                       <a href="https://github.com/apache/dubbo-go-samples" target="_blank"><img src="./assets/github.png" alt="Github" class="icon" style="height:1rem; width:1rem; margin-left: 0.5rem;"></a>
-                   </h2>
-                   <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: #555;">Stack: Go | LLM</p>
-                   <ul>
-                      <li>Contributed to improve <a href="https://github.com/apache/dubbo-go-samples/pull/826" target="_blank" style="text-decoration:none; color:inherit;"><strong>llm-sample</strong></a> in dubbo-go-samples.</li>
-                   </ul>
-                </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#certifications'"
-      />
-    </section>
-
-    <section id="certifications">
-      <p class="section__text__p1">My Credentials</p>
-      <h1 class="title">Certifications</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container" style="text-align: left; padding: 2rem; display: block;">
-              <p style="margin-bottom: 0.8rem; font-size: 1.1rem;">• <a href="https://coursera.org/share/4ffc4f647a0c0c3c18838926f26e07fa" target="_blank" style="text-decoration: none; color: inherit;"><strong>Deep Learning Specialization</strong> (5 courses)</a> - Coursera</p>
-              <p style="margin-bottom: 0.8rem; font-size: 1.1rem;">• <a href="https://coursera.org/share/264366d87b5c437badbcf663c74376bc" target="_blank" style="text-decoration: none; color: inherit;"><strong>Specialization in Natural Language Processing</strong> (4 courses)</a> - Coursera</p>
-              <p style="margin-bottom: 0.8rem; font-size: 1.1rem;">• <a href="https://coursera.org/share/b98522413d00d0690d4bd3eac9d33261" target="_blank" style="text-decoration: none; color: inherit;"><strong>Generative AI with Large Language Models</strong></a> - Coursera</p>
-              <p style="margin-bottom: 0.8rem; font-size: 1.1rem;">• <a href="https://coursera.org/share/47e7a9397b8c2458b3a5f18341d00ee6" target="_blank" style="text-decoration: none; color: inherit;"><strong>Cloud Computing Concepts</strong></a> - Coursera</p>
-              <p style="margin-bottom: 0.8rem; font-size: 1.1rem;">• <strong>Cloud Computing Applications:</strong> <a href="https://coursera.org/share/80e577c05464527f5d88235e1104a1d4" target="_blank" style="text-decoration: none; color: inherit;">Part 1</a> and <a href="https://coursera.org/share/6d9d10f95955b095b88a2f23c5eb30dc" target="_blank" style="text-decoration: none; color: inherit;">2</a> - Coursera</p>
-              <p style="font-size: 1.1rem;">• <a href="https://certification.wso2.com/certificate/CID-04874727/a09VM000007yvU1YAI" target="_blank" style="text-decoration: none; color: inherit;"><strong>WSO2 Certified Micro Integrator Practitioner - V4</strong></a> - WSO2</p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#achievements'"
-      />
-    </section>
-
-    <section id="achievements" style="height: fit-content; min-height: 40vh; margin-bottom: 4rem;">
-      <p class="section__text__p1">More About Me</p>
-      <h1 class="title">Leadership & Achievements</h1>
-      <div class="experience-details-container" style="flex-direction: column; gap: 2rem; align-items: center;">
-        
-        <!-- Achievements Section -->
-        <div class="about-containers" style="width: 80%; display: flex; flex-direction: column; gap: 1rem;">
-           <h2 class="experience-sub-title" style="align-self: flex-start; margin-bottom: 1rem;">Achievements</h2>
-           <div class="details-container" style="text-align: left; padding: 2rem;">
-             <ul style="margin-left: 1.5rem; font-size: 1.1rem;">
-                <li style="margin-bottom: 0.8rem;">Global Rank 307 - IEEEXtreme 18.0</li>
-                <li style="margin-bottom: 0.8rem;">Silver Medal - SL Physics Olympiad 2019</li>
-                <li>Silver Medal - SL Junior Science Olympiad 2016</li>
-             </ul>
-           </div>
-        </div>
-
-        <!-- Leadership Section -->
-        <div class="about-containers" style="width: 80%; display: flex; flex-direction: column; gap: 1rem;">
-           <h2 class="experience-sub-title" style="align-self: flex-start; margin-bottom: 1rem;">Leadership Experience</h2>
-           <div class="details-container" style="text-align: left; padding: 2rem;">
-             <div style="display: flex; gap: 1.5rem; align-items: center;">
-                 <img src="./assets/mathematics.png" alt="Mathematics Society Logo" style="height: 4rem; width: auto;">
-                 <div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 600;">President</h3>
-                    <p style="font-size: 1.1rem; color: #555;">Mathematics Society UoM</p>
-                 </div>
-             </div>
-           </div>
-        </div>
-
-      </div>
-       <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-
-
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:thisara.21@cse.mrt.ac.lk">thisara.21@cse.mrt.ac.lk</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/weerakoon-thisara-rathnayaka-881826177/">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Work Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              <a href="mailto:thisara.weerakoon2001@gmail.com">thisara.weerakoon2001@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM2.4 21.5h5.16V9.25H2.4V21.5zM9.8 9.25h4.95v1.68h.07c.69-1.24 2.37-2.55 4.88-2.55 5.22 0 6.18 3.3 6.18 7.6v5.52h-5.15v-4.9c0-1.17-.02-2.67-1.67-2.67-1.67 0-1.93 1.27-1.93 2.59v4.98H9.8V9.25z"/></svg>
+              <a href="https://www.linkedin.com/in/weerakoon-thisara-rathnayaka-881826177/" target="_blank" rel="noopener">LinkedIn</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.59 10.53.55.1.75-.24.75-.53v-2.07c-3.09.67-3.74-1.3-3.74-1.3-.5-1.29-1.23-1.63-1.23-1.63-1-.69.08-.67.08-.67 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.47-.28-5.06-1.24-5.06-5.5 0-1.22.43-2.21 1.15-2.99-.12-.28-.5-1.42.1-2.95 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.12-1.44 3.06-1.14 3.06-1.14.6 1.53.22 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.27-2.6 5.21-5.08 5.49.4.35.76 1.03.76 2.08v3.08c0 .3.2.64.76.53A11.11 11.11 0 0 0 23.1 11.6C23.1 5.33 18.27.5 12 .5z"/></svg>
+              <a href="https://github.com/ThisaraWeerakoon" target="_blank" rel="noopener">GitHub</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4h10l6 6v10a0 0 0 0 1 0 0H4z"/><path d="M14 4v6h6"/><path d="M8 14h8M8 18h5"/></svg>
+              <a href="https://arxiv.org/search/?searchtype=author&amp;query=Weerakoon%2C+T+R" target="_blank" rel="noopener">arXiv</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.37 18.5h-1.9V7.59h1.9V18.5zM6.42 6.3a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2zm5.1 12.2H9.6V7.59h3.78c3.6 0 5.17 2.57 5.17 5.46 0 3.14-2.45 5.45-5.2 5.45h-1.83zm.1-9.2v7.5h1.6c2.28 0 3.5-1.73 3.5-3.74 0-1.96-1.15-3.76-3.5-3.76h-1.6z"/></svg>
+              <a href="https://orcid.org/0009-0002-1961-2659" target="_blank" rel="noopener">0009-0002-1961-2659</a>
+            </li>
           </ul>
+
+          <a class="cv-button" href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            Curriculum Vitae
+          </a>
         </div>
-      </nav>
-      <p>Copyright &#169; 2024 Thisara Weerakoon. All Rights Reserved.</p>
+      </aside>
+
+      <!-- ------------------------------------------------ main -->
+      <main>
+        <!-- About -->
+        <section class="section" id="about">
+          <h2 class="section__title">About</h2>
+          <div class="prose">
+            <p class="lede">
+              I work on the boundary between software and hardware, where a program's performance
+              depends on how a compiler maps it onto the machine that runs it.
+            </p>
+            <p>
+              I am a Software Engineer in the R&amp;D division at
+              <a href="https://wso2.com" target="_blank" rel="noopener">WSO2</a> and an elected
+              Project Management Committee member of
+              <a href="https://synapse.apache.org/" target="_blank" rel="noopener">Apache Synapse</a>,
+              where I lead security and serve as release manager. In July 2026 I completed a
+              B.Sc. Engineering (Hons) in Computer Science and Engineering at the
+              <a href="https://uom.lk/cse" target="_blank" rel="noopener">University of Moratuwa</a>,
+              graduating with First Class Honours and a CGPA of 3.88/4.00.
+            </p>
+            <p>
+              My undergraduate thesis,
+              <a href="research.html#numa-torch"><strong>NUMA-Torch</strong></a>, extended PyTorch's
+              TorchInductor compiler to make large language model prefill NUMA-aware on multi-socket
+              CPUs, reaching up to 2.63&times; prefill speedup with no changes to model code; it
+              appears at <strong>HiPC 2026</strong>. Alongside it I have published first-author work
+              on temporal action localization and studied noise-robust biometric identification. I am
+              currently continuing part-time research on compilers for sparse computations with my
+              thesis advisors.
+            </p>
+            <p>
+              My research interests lie in <strong>compilers and computer architecture</strong> &mdash;
+              in particular, compilation for specialized and reconfigurable hardware, dynamically
+              scheduled dataflow architectures, and performance engineering for machine learning
+              systems. What draws me to these problems is that performance there is decided by how a
+              compiler reasons about the machine, not by how fast the machine is.
+            </p>
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">Compilers</span>
+            <span class="tag">High-Performance Computing</span>
+            <span class="tag">Hardware-Aware Optimization</span>
+            <span class="tag">AI Inference Optimization</span>
+            <span class="tag">Dataflow &amp; HLS</span>
+          </div>
+        </section>
+
+        <!-- News -->
+        <section class="section" id="news">
+          <h2 class="section__title">News</h2>
+          <ul class="news">
+            <li>
+              <span class="news__date">Nov 2026</span>
+              <span
+                >Preprint for <em>NUMA-Torch</em> is on arXiv
+                (<a href="https://arxiv.org/abs/2611.07105" target="_blank" rel="noopener">2611.07105</a>);
+                the paper will be presented at <strong>HiPC 2026</strong> in Bengaluru this December.</span
+              >
+            </li>
+            <li>
+              <span class="news__date">Jul 2026</span>
+              <span
+                >Graduated from the University of Moratuwa with First Class Honours (CGPA 3.88/4.00,
+                Dean's List in all eight semesters) and joined <strong>WSO2 R&amp;D</strong> as a
+                Software Engineer.</span
+              >
+            </li>
+            <li>
+              <span class="news__date">Jun 2026</span>
+              <span
+                >Started part-time research on <strong>compilers for sparse computations</strong> with
+                Prof. Sanath Jayasena and Dr. Tharindu Patabandi.</span
+              >
+            </li>
+            <li>
+              <span class="news__date">Dec 2025</span>
+              <span
+                >Preprint for <em>TBT-Former</em> released
+                (<a href="https://arxiv.org/abs/2512.01298" target="_blank" rel="noopener">2512.01298</a>),
+                accepted as a short paper at VISAPP 2026.</span
+              >
+            </li>
+            <li>
+              <span class="news__date">2025</span>
+              <span
+                >Elected to the <strong>Apache Synapse PMC</strong> by the Apache Software Foundation,
+                after being elected a committer at the close of my WSO2 internship.</span
+              >
+            </li>
+            <li>
+              <span class="news__date">Nov 2024</span>
+              <span>Placed <strong>world rank 307</strong> (country rank 15) in IEEEXtreme 18.0.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Publications -->
+        <section class="section" id="publications">
+          <h2 class="section__title">Publications</h2>
+
+          <article class="pub">
+            <span class="pub__key">[C1]</span>
+            <div>
+              <h3 class="pub__title">
+                NUMA-Torch: Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket CPUs
+                <span class="badge">Accepted</span>
+              </h3>
+              <p class="pub__authors">
+                <span class="me">T. R. Weerakoon</span>, I. Dewpura, N. Ransindu, S. Anjitha,
+                T. R. Patabandi, and S. Jayasena
+              </p>
+              <p class="pub__venue">
+                Proc. 33rd IEEE International Conference on High Performance Computing, Data, and
+                Analytics (HiPC 2026), Bengaluru, India, Dec 2026.
+              </p>
+              <div class="pub__links">
+                <a class="chip" href="https://arxiv.org/abs/2611.07105" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+                  arXiv:2611.07105
+                </a>
+                <a class="chip" href="research.html#numa-torch">Project page</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub">
+            <span class="pub__key">[P1]</span>
+            <div>
+              <h3 class="pub__title">
+                TBT-Former: Learning Temporal Boundary Distributions for Action Localization
+              </h3>
+              <p class="pub__authors"><span class="me">T. R. Weerakoon</span> and U. Thayasivam</p>
+              <p class="pub__venue">
+                Accepted as a short paper, 21st International Conference on Computer Vision Theory and
+                Applications (VISAPP 2026). Preprint, Dec 2025.
+              </p>
+              <p class="pub__note">
+                Withdrawn before publication, as I was unable to fund the registration and travel
+                costs. The preprint and implementation remain openly available.
+              </p>
+              <div class="pub__links">
+                <a class="chip" href="https://www.arxiv.org/pdf/2512.01298" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+                  arXiv:2512.01298
+                </a>
+                <a class="chip" href="https://github.com/aaivu/In21-S7-CS4681-AML-Research-Projects/tree/main/projects/210536K-Multi-Modal-Learning_Video-Understanding/src" target="_blank" rel="noopener">Code</a>
+                <a class="chip" href="research.html#tbt-former">Project page</a>
+              </div>
+            </div>
+          </article>
+
+          <p class="pub__note" style="margin-top: 1.25rem">
+            A full account of each project, including the work not yet written up, is on the
+            <a href="research.html">research page</a>.
+          </p>
+        </section>
+
+        <!-- Education -->
+        <section class="section" id="education">
+          <h2 class="section__title">Education</h2>
+
+          <article class="entry entry--withlogo">
+            <img class="entry__logo" src="./assets/uom.jpeg" alt="University of Moratuwa" />
+            <div>
+              <div class="entry__head">
+                <h3 class="entry__title">University of Moratuwa</h3>
+                <span class="entry__date">Jun 2022 &ndash; Jul 2026</span>
+              </div>
+              <p class="entry__sub">
+                B.Sc. Engineering (Hons) in Computer Science and Engineering &mdash; First Class Honours
+              </p>
+              <div class="entry__body">
+                <ul>
+                  <li><strong>CGPA 3.88/4.00</strong>; Dean's List in all eight semesters.</li>
+                  <li>Specialization in Data Science and Engineering; Minor in Mathematics.</li>
+                  <li>
+                    Thesis: <em>NUMA-Torch: Compiler-Driven NUMA-Aware LLM Prefill on Multi-Socket
+                    CPUs</em>, advised by Prof. Sanath Jayasena and Dr. Tharindu R. Patabandi
+                    (Qualcomm Technologies).
+                  </li>
+                  <li>
+                    Relevant coursework: Computer Organization and Digital Design, Advanced Computer
+                    Architecture, Programming Languages, Scientific Computing &mdash; A grades in all
+                    four.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry entry--withlogo">
+            <img class="entry__logo" src="./assets/rahula.png" alt="Rahula College, Matara" />
+            <div>
+              <div class="entry__head">
+                <h3 class="entry__title">Rahula College, Matara</h3>
+                <span class="entry__date">2020</span>
+              </div>
+              <p class="entry__sub">G.C.E. Advanced Level Examination &mdash; Physical Science Stream</p>
+              <div class="entry__body">
+                <ul>
+                  <li>
+                    <strong>National rank 54</strong> of more than 300,000 candidates (99.98th
+                    percentile); A grades in Physics, Chemistry and Combined Mathematics.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Experience -->
+        <section class="section" id="experience">
+          <h2 class="section__title">Professional Experience</h2>
+
+          <article class="entry entry--withlogo">
+            <img class="entry__logo" src="./assets/wso2.png" alt="WSO2" />
+            <div>
+              <div class="entry__head">
+                <h3 class="entry__title">WSO2 Lanka (Pvt) Ltd.</h3>
+                <span class="entry__date">Jul 2026 &ndash; Present</span>
+              </div>
+              <p class="entry__sub">Software Engineer &mdash; R&amp;D, WSO2 Integrator Team</p>
+              <div class="entry__body">
+                <ul>
+                  <li>
+                    Re-architecting the Synapse Language Server behind the
+                    <a href="https://marketplace.visualstudio.com/items?itemName=WSO2.micro-integrator" target="_blank" rel="noopener">MI for VS Code</a>
+                    extension from a JVM-per-project model to a single JVM serving concurrent
+                    projects.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry entry--withlogo">
+            <img class="entry__logo" src="./assets/wso2.png" alt="WSO2" />
+            <div>
+              <div class="entry__head">
+                <h3 class="entry__title">WSO2 Lanka (Pvt) Ltd.</h3>
+                <span class="entry__date">Dec 2024 &ndash; May 2025</span>
+              </div>
+              <p class="entry__sub">Software Engineering Intern &mdash; Micro Integrator Team</p>
+              <div class="entry__body">
+                <ul>
+                  <li>
+                    Implemented a high-performance mediation engine in Go to modernize the
+                    architecture of the existing Java-based Enterprise Service Bus
+                    (<a href="https://github.com/apache/synapse-go" target="_blank" rel="noopener">Apache Synapse-Go</a>).
+                  </li>
+                  <li>
+                    Designed a format-independent, lazily built message representation, a runtime
+                    per-package logging package for Go, and an out-of-process connector architecture
+                    communicating over RPC.
+                  </li>
+                  <li>
+                    Elected an <strong>Apache committer</strong> by the Synapse PMC at the close of
+                    the internship.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Honors -->
+        <section class="section" id="honors">
+          <h2 class="section__title">Honors &amp; Awards</h2>
+          <ul class="data-list">
+            <li>
+              <span class="data-list__year">2025</span>
+              <span
+                ><strong>Committer and PMC Member, Apache Synapse</strong> &mdash; elected by the
+                Apache Software Foundation in recognition of sustained technical contribution.</span
+              >
+            </li>
+            <li>
+              <span class="data-list__year">2022&ndash;26</span>
+              <span
+                ><strong>Dean's List</strong>, Faculty of Engineering, University of Moratuwa &mdash;
+                all eight semesters (semester GPA above 3.80).</span
+              >
+            </li>
+            <li>
+              <span class="data-list__year">2024</span>
+              <span>IEEEXtreme 18.0 &mdash; country rank 15, world rank 307.</span>
+            </li>
+            <li>
+              <span class="data-list__year">2021</span>
+              <span>&ldquo;Mahapola&rdquo; Merit Scholarship for Undergraduate Studies, Government of Sri Lanka.</span>
+            </li>
+            <li>
+              <span class="data-list__year">2019</span>
+              <span>Silver Medal, Sri Lankan Physics Olympiad &mdash; Institute of Physics, Sri Lanka.</span>
+            </li>
+            <li>
+              <span class="data-list__year">2016</span>
+              <span>Silver Medal, Sri Lankan Junior Science Olympiad &mdash; Institute of Physics, Sri Lanka.</span>
+            </li>
+            <li>
+              <span class="data-list__year">2014&ndash;16</span>
+              <span>High Distinction, Sri Lankan Mathematics Olympiad Competition.</span>
+            </li>
+            <li>
+              <span class="data-list__year">2012&ndash;13</span>
+              <span>Bronze Medal, Sri Lankan Mathematics and Science Olympiad &mdash; Ministry of Education.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Skills -->
+        <section class="section" id="skills">
+          <h2 class="section__title">Technical Skills</h2>
+          <dl class="skills-grid">
+            <dt>Programming</dt>
+            <dd>C++, VHDL, Go, Java, Python</dd>
+
+            <dt>Compiler Technologies</dt>
+            <dd>LLVM, MLIR, TorchInductor, Triton-CPU, OpenMP, libnuma, numactl</dd>
+
+            <dt>Performance Profiling</dt>
+            <dd>Intel Advisor, Intel VTune, Linux perf</dd>
+
+            <dt>Hardware &amp; EDA</dt>
+            <dd>Xilinx Vivado, GHDL, Dynamatic, Digilent Basys3 (Artix-7)</dd>
+
+            <dt>Machine Learning</dt>
+            <dd>PyTorch, TensorFlow, Keras, DeepChem, RDKit</dd>
+
+            <dt>Languages</dt>
+            <dd>English (full working proficiency), Sinhala (native)</dd>
+          </dl>
+        </section>
+
+        <!-- References -->
+        <section class="section" id="references">
+          <h2 class="section__title">References</h2>
+          <div class="callout">
+            <p>
+              References are available on request. Please
+              <a href="mailto:thisara.weerakoon2001@gmail.com">get in touch by email</a> and I will
+              put you in contact with my thesis advisors and open-source mentors.
+            </p>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+          <h2 class="section__title">Contact</h2>
+          <div class="callout">
+            <p>
+              The fastest way to reach me is email:
+              <a href="mailto:thisara.weerakoon2001@gmail.com">thisara.weerakoon2001@gmail.com</a>.
+              I am always glad to talk about compiler and HPC work, research collaborations, or
+              anything relating to Apache Synapse. My full CV is
+              <a href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">available here</a>.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>&copy; 2026 Thisara R. Weerakoon</span>
+        <ul class="footer-links">
+          <li><a href="research.html">Research</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="teaching.html">Teaching &amp; Service</a></li>
+          <li><a href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">CV</a></li>
+          <li><a href="https://github.com/ThisaraWeerakoon" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

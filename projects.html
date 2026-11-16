@@ -2,229 +2,282 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects - My Portfolio</title>
+    <title>Projects — Thisara R. Weerakoon</title>
+    <meta
+      name="description"
+      content="Systems, hardware and software projects by Thisara R. Weerakoon — elastic circuits, a soft processor, an RPAL interpreter, and more."
+    />
+    <link rel="icon" href="./assets/profile-pic.jpg" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">My Portfolio</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
-          <li><a href="index.html#experience">Work Experience</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="index.html">Thisara R. Weerakoon</a>
+        <ul class="nav" id="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="projects.html" class="is-active">Projects</a></li>
+          <li><a href="teaching.html">Teaching &amp; Service</a></li>
+          <li><a href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">CV</a></li>
+        </ul>
+        <div class="header-tools">
+          <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="icon-btn nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page" id="main">
+      <h1 class="page-title">Projects</h1>
+      <p class="page-lede">
+        Engineering work outside my published research, grouped by what it taught me. Research
+        projects are described separately on the
+        <a href="research.html">research page</a>.
+      </p>
+
+      <!-- Systems & hardware -->
+      <section class="section" id="systems">
+        <h2 class="section__title">Systems, Compilers &amp; Hardware</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Dynamically Scheduled Elastic Circuits</h3>
+              <p class="card__text">
+                A dataflow circuit built from a hand-written handshake component library, measured
+                against a static FSM baseline and against Dynamatic's output for the same C source.
+                Benchmarked three buffer-placement algorithms.
+              </p>
+              <p class="card__stack">VHDL &middot; GHDL &middot; Dynamatic &middot; Python</p>
+              <div class="card__links">
+                <a class="chip" href="research.html#hardware">Details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/NanoProcessor.png" alt="Nano Processor on FPGA" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Nano Processor &mdash; 4-bit Soft CPU</h3>
+              <p class="card__text">
+                Single-cycle CPU for a 12-bit, 4-instruction ISA with conditional branching, built
+                structurally from full adders, multiplexers and decoders, and deployed to an FPGA.
+              </p>
+              <p class="card__stack">VHDL &middot; Xilinx Vivado &middot; Digilent Basys3 (Artix-7)</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/Nano_Processor" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/RPAL.png" alt="RPAL Interpreter" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">RPAL Interpreter</h3>
+              <p class="card__text">
+                Lexical analyzer, parser and evaluator for the RPAL functional language, written from
+                scratch in C++ &mdash; my first contact with the front end of a compiler.
+              </p>
+              <p class="card__stack">C++</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/RPAL-Interpreter" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/PintOS.png" alt="PintOS" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">PintOS Kernel Extensions</h3>
+              <p class="card__text">
+                Extended the Pintos instructional operating system with a priority-scheduling thread
+                system and a set of user-space system calls.
+              </p>
+              <p class="card__stack">C &middot; x86</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/PintOS-Operating-System" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Distributed & open source -->
+      <section class="section" id="distributed">
+        <h2 class="section__title">Distributed Systems</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/agent_mesh.jpeg" alt="AgentMesh" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">AgentMesh</h3>
+              <p class="card__text">
+                A Go framework that scales multi-agent systems across microservices through
+                intent-based discovery and context propagation.
+              </p>
+              <p class="card__stack">Go &middot; gRPC &middot; A2A protocol &middot; Google ADK &middot; Docker</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/Agent-Mesh" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/synapse.png" alt="Apache Synapse-Go" style="object-fit: contain; padding: 1.5rem; background: #fff" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Apache Synapse-Go</h3>
+              <p class="card__text">
+                Core components of a Go rewrite of the Synapse Enterprise Service Bus: a
+                format-independent lazy message model, an out-of-process connector architecture over
+                RPC, and runtime-configurable per-package logging.
+              </p>
+              <p class="card__stack">Go &middot; RPC &middot; Enterprise Integration</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/apache/synapse-go" target="_blank" rel="noopener">GitHub</a>
+                <a class="chip" href="teaching.html#service">Service record</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Machine learning -->
+      <section class="section" id="ml">
+        <h2 class="section__title">Machine Learning</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/TBTFormer.jpeg" alt="TBT-Former" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">TBT-Former</h3>
+              <p class="card__text">
+                Temporal action localization with a head that predicts boundaries as probability
+                distributions rather than single timestamps. First-author preprint.
+              </p>
+              <p class="card__stack">PyTorch &middot; Transformers &middot; Distribution Focal Loss</p>
+              <div class="card__links">
+                <a class="chip" href="research.html#tbt-former">Details</a>
+                <a class="chip" href="https://www.arxiv.org/pdf/2512.01298" target="_blank" rel="noopener">Paper</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/GNN.png" alt="Protein-Molecule GNN" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Protein&ndash;Molecule Binding GNN</h3>
+              <p class="card__text">
+                Graph neural network predicting the binding affinity of small molecules to protein
+                targets, built for the NeurIPS 2024 competition setting.
+              </p>
+              <p class="card__stack">PyTorch &middot; RDKit &middot; DeepChem</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/GNN-for-NeurIPS-2024" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/Age_estimation.png" alt="Facial Age Estimation" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Facial Age Estimation</h3>
+              <p class="card__text">
+                Transfer learning with VGG16 to predict age from facial images, deployed as a hosted
+                service.
+              </p>
+              <p class="card__stack">Python &middot; TensorFlow &middot; Keras &middot; OpenCV &middot; Azure</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/Age-Classification" target="_blank" rel="noopener">GitHub</a>
+                <a class="chip" href="https://medium.com/@thisara.weerakoon2001/age-classification-using-transfer-learning-vgg16-d2f240f67d26" target="_blank" rel="noopener">Write-up</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Applications -->
+      <section class="section" id="applications">
+        <h2 class="section__title">Applications</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/innolink.png" alt="InnoLink" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">InnoLink</h3>
+              <p class="card__text">
+                Platform connecting innovators with investors, supporting idea sharing, collaboration
+                and networking.
+              </p>
+              <p class="card__stack">Ballerina &middot; React &middot; MySQL &middot; Azure</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/Innolink" target="_blank" rel="noopener">GitHub</a>
+                <a class="chip" href="https://lemon-pebble-04326950f.3.azurestaticapps.net/" target="_blank" rel="noopener">Live site</a>
+                <a class="chip" href="https://www.youtube.com/watch?v=Vu1mjClup_4" target="_blank" rel="noopener">Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="./assets/ecommerce.jpeg" alt="E-Commerce Platform" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">E-Commerce Platform</h3>
+              <p class="card__text">
+                Full-stack single-vendor platform with product catalog, cart and reporting, built
+                around a normalized relational schema.
+              </p>
+              <p class="card__stack">React &middot; Node.js &middot; Express &middot; MySQL</p>
+              <div class="card__links">
+                <a class="chip" href="https://github.com/ThisaraWeerakoon/ECommerce_Platform_DataBase_Project" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>&copy; 2026 Thisara R. Weerakoon</span>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="teaching.html">Teaching &amp; Service</a></li>
+          <li><a href="./CV-Thisara_Weerakoon.pdf" target="_blank" rel="noopener">CV</a></li>
         </ul>
       </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">My Portfolio</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="index.html#skills" onclick="toggleMenu()">Skills</a></li>
-          <li><a href="index.html#experience" onclick="toggleMenu()">Work Experience</a></li>
-          <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-
-    <section id="projects" style="padding-top: 4vh; height: fit-content; min-height: 80vh;">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="./assets/agent_mesh.jpeg" alt="Project 1" class="project-img" />
-            </div>
-            <h2 class="experience-sub-title project-title">Agent Mesh</h2>
-            <p style="text-align:center; font-size:0.8rem;">Orchestrating enterprise AI agents</p>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/Agent-Mesh'">
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="./assets/innolink.png" alt="Project 2" class="project-img" />
-            </div>
-            <h2 class="experience-sub-title project-title">InnoLink</h2>
-            <p style="text-align:center; font-size:0.8rem;">Platform connecting innovators with investors enable idea sharing, collaboration, and seamless networking.</p>
-            <p style="text-align:center; font-size:0.8rem; font-weight:bold; margin-top:0.5rem;">Tools: Ballerina, React, MySQL</p>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/Innolink'">
-                Github
-              </button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://lemon-pebble-04326950f.3.azurestaticapps.net/'">
-                Website
-              </button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://www.youtube.com/watch?v=Vu1mjClup_4'">
-                Demo Pitch
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="./assets/TBTFormer.jpeg" alt="Project 3" class="project-img" />
-            </div>
-            <h2 class="experience-sub-title project-title">TBT-Former</h2>
-            <p style="text-align:center; font-size:0.8rem;">Temporal Action Localization</p>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/aaivu/In21-S7-CS4681-AML-Research-Projects/tree/main/projects/210536K-Multi-Modal-Learning_Video-Understanding/src'">
-                Github
-              </button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://www.arxiv.org/pdf/2512.01298'">
-                Paper
-              </button>
-            </div>
-          </div>
-        </div>
-
-      <div class="about-containers">
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/Age_estimation.png" alt="Facial Age Estimation" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Facial Age Estimation</h2>
-          <p style="text-align:center; font-size:0.8rem;">Deep learning model using VGG16 to predict age from facial images.</p>
-          <p style="text-align:center; font-size:0.8rem; font-weight:bold; margin-top:0.5rem;">Tools: Python, TensorFlow, Keras, OpenCV, Azure</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/Age-Classification'">
-              Github
-            </button>
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://medium.com/@thisara.weerakoon2001/age-classification-using-transfer-learning-vgg16-d2f240f67d26'">
-              Medium
-            </button>
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/Age-Classification-Project'">
-              Deploy
-            </button>
-          </div>
-        </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/RPAL.png" alt="RPAL Interpreter" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">RPAL Interpreter</h2>
-          <p style="text-align:center; font-size:0.8rem;">Lexical analyzer and parser in C++ to process RPAL language code</p>
-          <p style="text-align:center; font-size:0.8rem; font-weight:bold; margin-top:0.5rem;">Tools: C++</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/RPAL-Interpreter'">
-              Github
-            </button>
-          </div>
-        </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/GNN.png" alt="GNN Project" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Protein-Molecule GNN</h2>
-          <p style="text-align:center; font-size:0.8rem;">GNN model to predict binding affinity of small molecules to protein targets.</p>
-          <p style="text-align:center; font-size:0.8rem; font-weight:bold; margin-top:0.5rem;">Tools: Pytorch, RDKit, DeepChem, GNN</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/GNN-for-NeurIPS-2024'">
-              Github
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="about-containers">
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/PintOS.png" alt="PintOS" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">PintOS</h2>
-          <p style="text-align:center; font-size:0.8rem;">Improved Pintos OS by implementing Thread System and system calls.</p>
-          <p style="text-align:center; font-size:0.8rem; font-weight:bold; margin-top:0.5rem;">Tools: C</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/PintOS-Operating-System'">
-              Github
-            </button>
-          </div>
-        </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/NanoProcessor.png" alt="Nano Processor" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Nano Processor</h2>
-          <p style="text-align:center; font-size:0.8rem;">4-bit processor capable of executing four instructions.</p>
-          <p style="text-align:center; font-size:0.8rem; font-weight:bold; margin-top:0.5rem;">Tools: VHDL, Vivado</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/Nano_Processor'">
-              Github
-            </button>
-          </div>
-        </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/ecommerce.jpeg" alt="E-Commerce Platform" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">E-Commerce Platform</h2>
-          <p style="text-align:center; font-size:0.8rem;">Full-stack single vendor e-commerce platform with catalog, cart, and reporting.</p>
-          <p style="text-align:center; font-size:0.8rem; font-weight:bold; margin-top:0.5rem;">Tools: React, NodeJS, Express, MySQL</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ThisaraWeerakoon/ECommerce_Platform_DataBase_Project'">
-              Github
-            </button>
-          </div>
-        </div>
-      </div>
-      </div>
-      
-      <p class="section__text__p1" style="margin-top:2rem;">Contributions</p>
-      <h1 class="title">Open Source</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-            <div class="details-container">
-                <h2 class="experience-sub-title">Apache Synapse-Go</h2>
-                <div class="article-container" style="display:block; text-align:left;">
-                   <p>• Listed as Apache Synapse Contributor.</p>
-                   <p>• <a href="https://github.com/apache/synapse-go">View Repository</a></p>
-                </div>
-            </div>
-            <div class="details-container">
-                <h2 class="experience-sub-title">C2FO/VFS & Dubbo-Go</h2>
-                <div class="article-container" style="display:block; text-align:left;">
-                   <p>• Improved FTP/SFTP implementation in C2FO/VFS.</p>
-                   <p>• Contributed to llm-sample in Apache Dubbo-Go.</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-       <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='index.html#contact'"
-      />
-    </section>
-
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="index.html#experience">Work Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2024 Thisara Weerakoon. All Rights Reserved.</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
